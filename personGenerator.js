@@ -1,4 +1,5 @@
 const personGenerator = {
+    //Фамилии
     surnameJson: `{  
         "count": 15,
         "list": {
@@ -21,6 +22,7 @@ const personGenerator = {
         }
     }`,
 
+    //Мужские имена
     firstNameMaleJson: `{
         "count": 10,
         "list": {     
@@ -37,6 +39,7 @@ const personGenerator = {
         }
     }`,
 
+    //Женские имена
     firstNameFemaleJson: `{
         "count": 10,
         "list": {     
@@ -50,6 +53,65 @@ const personGenerator = {
             "id_8": "Кристина",
             "id_9": "Любовь",
             "id_10": "Елена"
+        }
+    }`,
+
+    //Мужские проффессии
+    professionMaleJson: `{
+        "count": 10,
+        "list": {     
+            "id_1": "Водитель",
+            "id_2": "Слесарь",
+            "id_3": "Токарь",
+            "id_4": "Каменщик",
+            "id_5": "Грузчик",
+            "id_6": "Электрик",
+            "id_7": "Сантехник",
+            "id_8": "Шахтер",
+            "id_9": "Летчик",
+            "id_10": "Охранник"
+        }
+    }`,
+
+    //Женские проффесии
+    professionFemaleJson: `{
+        "count": 10,
+        "list": {     
+            "id_1": "Бухгалтер",
+            "id_2": "Швея",
+            "id_3": "Кондуктор",
+            "id_4": "Секретарь",
+            "id_5": "Нянечка",
+            "id_6": "Уборщица",
+            "id_7": "Библиотекарь",
+            "id_8": "Косметолог",
+            "id_9": "Парикмахер",
+            "id_10": "Медсестра"
+        }
+    }`,
+
+    //Месяцы где 31 день
+    month31Json: `{
+        "count": 7,
+        "list": {     
+            "id_1": "Января",
+            "id_2": "Марта",
+            "id_3": "Мая",
+            "id_4": "Июля",
+            "id_5": "Августа",
+            "id_6": "Октяря",
+            "id_7": "Декабря"
+        }
+    }`,
+
+    //Месяцы где 30 дней
+    month30Json: `{
+        "count": 4,
+        "list": {     
+            "id_1": "Апреля",
+            "id_2": "Июня",
+            "id_3": "Сентября",
+            "id_4": "Ноября"
         }
     }`,
 
@@ -114,11 +176,29 @@ const personGenerator = {
         return middleName;
     },
 
+    //Год рождения
+    randomBirthday: function() { 
+        if (Math.floor(Math.random() * 3) == 0) {
+            year = this.randomIntNumber(2006, 1960);
+            month = this.randomValue(this.month31Json);
+            day = this.randomIntNumber(31, 1);
+        } else 
+        if (Math.floor(Math.random() * 3) == 1) {
+            year = this.randomIntNumber(2006, 1960);
+            month = this.randomValue(this.month30Json);
+            day = this.randomIntNumber(30, 1);
+        } 
+        birthday = day + ' ' + month + ' ' + year + " года рождения"; 
+        return birthday;
+      },
+
     getPerson: function () {
         this.person = {};
         // this.person.gender = this.randomGender();
         this.person.firstName = this.randomFirstName();
         this.person.surName = this.randomSurName();
+        this.person.middleName = this.randomMiddleName();
+        this.person.birthday = this.randomBirthday();
         return this.person;
     }
 };
