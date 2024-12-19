@@ -3,7 +3,7 @@ body {
 }
 
 h3, h4 {
-    color:chocolate;
+    color:black;
 }
 
 .container {
@@ -14,7 +14,7 @@ h3, h4 {
 }
 
 .card-header {
-background-color:aqua;
+background-color:darkorange;
 }
 
 .m-0 {
@@ -24,7 +24,7 @@ background-color:aqua;
 
 .card-body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: blanchedalmond;
+    background-color:gold;
 }
 
 
